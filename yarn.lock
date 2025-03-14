@@ -3149,7 +3149,7 @@ cssstyle@^1.1.1:
   dependencies:
     cssom "0.3.x"
 
-cypress@9.0.0, cypress@^9.0.0:
+cypress@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-9.0.0.tgz#8c496f7f350e611604cc2f77b663fb81d0c235d2"
   integrity sha512-/93SWBZTw7BjFZ+I9S8SqkFYZx7VhedDjTtRBmXO0VzTeDbmxgK/snMJm/VFjrqk/caWbI+XY4Qr80myDMQvYg==
