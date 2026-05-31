@@ -1,4 +1,6 @@
 ## Release History
+* **0.6.2**
+    * 🐞 `BUGFIX` Updated dependencies
 * **0.6.1**
     * 🐞 `BUGFIX` Add ability to pass an element to Micromodal.close()
     * 🌀 `ENHANCEMENT` Updated documentation for show and close methods
