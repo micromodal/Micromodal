@@ -37,7 +37,7 @@
     "@rollup/plugin-eslint": "^8.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "browserlist": "^1.0.1",
-    "eslint": "^8.2.0",
+    "eslint": "^9.26.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
