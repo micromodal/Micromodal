@@ -18,8 +18,7 @@
     "test:serve": "yarn workspace @micromodal/tests start",
     "test:gui": "yarn workspace @micromodal/tests cypress:open",
     "test:cli": "yarn workspace @micromodal/tests cypress:cli",
-    "deploy:npm": "yarn workspace micromodal deploy",
-    "deploy:docs": "yarn workspace @micromodal/docs deploy"
+    "deploy:npm": "yarn workspace micromodal deploy"
   },
   "repository": {
     "type": "git",

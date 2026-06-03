@@ -120,6 +120,7 @@ First, you must be authorized on npmjs.com. Then:
   - `git push origin X.Y.Z`
 
 5. Create a new release in Github: https://github.com/micromodal/micromodal/releases
+  - Publishing the release automatically triggers the docs deployment to GitHub Pages via the `Deploy Docs` workflow.
 
 &nbsp;
 

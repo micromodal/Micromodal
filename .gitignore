@@ -9,3 +9,4 @@ yarn-error.log
 .parcel-cache
 
 .vercel
+docs/src/scripts/micromodal.js
