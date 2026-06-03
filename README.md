@@ -2,7 +2,7 @@
   <img src="https://www.dropbox.com/s/tbaooyi4yh8pbi7/logo.png?raw=1" width="100px"/>
 </p>
 <h3 align="center">
-  Micromodal.js
+  Micromodal.js (Testing v0.7.2)
 </h3>
 
 <p align="center">
@@ -25,7 +25,7 @@
 
 <img src="https://www.dropbox.com/s/8g7fr091tk8o62j/micromodal.gif?raw=1" width="100%">
 
-The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped - A tiny library for big change.
+The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped&mdash;A tiny library for big change.
 
 **[Demo and documentation](https://micromodal.now.sh/)**
 
@@ -45,6 +45,8 @@ The aim of this library is to make modal dialogs accessible and easy to include 
 ✔ Focuses on the first focusable element within the modal
 
 ✔ Retains the focused element state after closing the modal
+
+✔ Supports nested modals
 
 &nbsp;
 

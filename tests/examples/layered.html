@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/test.css">
+  <link rel="stylesheet" href="../assets/modal.css">
+  <script type="module" src="../assets/modal.js"></script>
+  <title>Layered | Tests</title>
+</head>
+
+<body>
+
+  <div>
+    <h1 class="h1">Layered tests</h1>
+
+    <div class="wrapper">
+      <button class="button" id="trigger" data-micromodal-trigger="modal-1">
+        Toggle modal
+      </button>
+      <button class="button" id="trigger" data-micromodal-trigger="modal-2">
+        Toggle modal
+      </button>
+    </div>
+
+
+    <!-- Modal -->
+
+
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+          <header class="modal__header">
+            <h2 class="modal__title" id="modal-1-title">
+              Micromodal
+            </h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <main class="modal__content" id="modal-1-content">
+            <p>
+              Hello Modal
+            </p>
+            <p>
+              This is me yo! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </main>
+          <footer class="modal__footer">
+            <button class="modal__btn" id="trigger-2" data-micromodal-trigger="modal-2">
+              Open another modal
+            </button>
+            <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">
+              Close
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal micromodal-slide" id="modal-2" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+          <header class="modal__header">
+            <h2 class="modal__title" id="modal-1-title">
+              Micromodal #2
+            </h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <main class="modal__content" id="modal-1-content">
+            <p>
+              Hello Modal #2
+            </p>
+            <p>
+              This is me, #2, yo! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </main>
+          <footer class="modal__footer">
+            <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">
+              Close
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      MicroModal.init({
+        onShow: () => document.body.classList.add('howdy'),
+        onClose: () => document.body.classList.remove('howdy'),
+        awaitCloseAnimation: true,
+        openClass: 'open'
+      })
+    });
+  </script>
+
+</body>
+
+</html>

@@ -49,13 +49,13 @@
 
     <header class="header mt5">
       <div class="logo pv2" id="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" viewBox="0 0 40 25">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" viewBox="0 0 40 25" style="margin-right: 8px;">
           <g fill-rule="evenodd">
             <path
               d="M1.2 0h37.6c.6627 0 1.2.5373 1.2 1.2v22.6c0 .6627-.5373 1.2-1.2 1.2H1.2C.5373 25 0 24.4627 0 23.8V1.2C0 .5373.5373 0 1.2 0zm5.6 6.0484c-.4418 0-.8.3582-.8.8v11.3032c0 .4418.3582.8.8.8h26.8c.4418 0 .8-.3582.8-.8V6.8484c0-.4418-.3582-.8-.8-.8H6.8z" />
             <rect width="10.4" height="2.419" x="15.2" y="14.516" rx=".4" />
           </g>
-        </svg>
+        </svg><strong>Micromodal.js</strong>
       </div>
 
       <!-- <div class=lh-copy">
@@ -84,22 +84,8 @@
     <main class="cf mt4 mb5 flex">
 
       <aside class="fl dn db-l w-25">
-        <ul class="list pl0 sticky">
-          <li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-10">
-            <a href="#introduction" class="link black-70 blue fw6 active navlink">Introduction</a>
-          </li>
-          <li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-10">
-            <a href="#installation" class="link black-70 navlink">Installation</a>
-          </li>
-          <li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-10">
-            <a href="#usage" class="link black-70 navlink">Usage</a>
-          </li>
-          <li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-10">
-            <a href="#configuration" class="link black-70 navlink">Configuration</a>
-          </li>
-          <li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-10">
-            <a href="#styling" class="link black-70 navlink">Styling</a>
-          </li>
+        <ul class="list pl0 sticky" id="sections">
+          <!-- Sections are dynamically added here -->
         </ul>
       </aside>
 
@@ -116,7 +102,7 @@
         <p class="lh-copy mv4 black-80">
           It enables you to create <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal" target="_blank"
             rel="noopener" class="blue underline no-underline-hover">WAI-ARIA guidelines</a> compliant modal dialogs,
-          with confidence and with minimal configuration. At just 1.9kb minified and gzipped, its a tiny library for big
+          with confidence and with minimal configuration. At just 1.8kb minified and gzipped, its a tiny library for big
           change.
         </p>
 
@@ -139,10 +125,12 @@
         <ul class="lh-copy checkmark pl0 mv4">
           <li class="mv1">Closing modal on overlay click</li>
           <li class="mv1">Closing modal on <code>esc</code> button press</li>
-          <li class="mv1">Toggling <code>aria-hidden</code> attribute on modal</li>
+          <li class="mv1">Toggling <code>aria-hidden</code> attribute when showing and hiding modal</li>
           <li class="mv1">Trapping tab focus within the modal</li>
           <li class="mv1">Maintaining focus position before and after toggling modal</li>
           <li class="mv1">Focusing on the first focusable element within the modal</li>
+          <li class="mv1"><code>onShow</code> and <code>onClose</code> is called when showing and hiding modal</li>
+          <li class="mv1">Supports nested modals</li>
         </ul>
 
 
@@ -338,33 +326,45 @@ MicroModal.init();
 MicroModal.show('modal-id'); // [1]
 MicroModal.close('modal-id'); // [2]
 
-MicroModal.show(modalElement); // [3]
-MicroModal.close(modalElement); // [4]
+// [3]
+MicroModal.show(modalElement);
+MicroModal.close(modalElement);
 
-// [5]
+// [4]
 MicroModal.show(modalElement, {
   onShow: modal => console.info(`${modal.id} is shown`),
   onClose: modal => console.info(`${modal.id} is hidden`),
 });
+
+MicroModal.closeAll(); // [5]
+MicroModal.removeModal(modalElement); // [6]
+MicroModal.initModal('modal-id'); // [7]
           </code>
         </pre>
 
         <ul class="ordered lh-copy pl0 mv4">
           <li class="pl4 pv3">
-            If the argument passed to the <code>show</code> method is a string, it corresponds to the <code>id</code> of the modal to be open.
+            If the argument passed to the <code>show</code> method is a string, it corresponds to the <code>modalId</code> of the modal to be opened.
           </li>
           <li class="pl4 pv3">
-            If the argument passed to the <code>close</code> method is a string, it corresponds to the <code>id</code> of the modal to be closed.
+            If the argument passed to the <code>close</code> method is a string, it corresponds to the <code>modalId</code> of the modal to be closed.
           </li>
           <li class="pl4 pv3">
-            If you pass in an element to the <code>show</code> method, it will be used as the modal to be open.
+            You can pass in an element to the <code>show</code> or <code>close</code> method to open or close the modal.
           </li>
           <li class="pl4 pv3">
-            If you pass in an element to the <code>close</code> method, it will be used as the modal to be closed.
-          </li>
-          <li class="pl4 pv3">
-            If you pass in a config object to the <code>show</code> or <code>close</code> methods, it will apply only to this
+            If you pass in a config object to the <code>show</code> method, it will apply only to this
               modal.
+          </li>
+          <li class="pl4 pv3">
+            <code>MicroModal.closeAll()</code> just closes all the open modals.
+          </li>
+          <li class="pl4 pv3">
+            <code>MicroModal.removeModal(modalElement)</code> unregisters a modal and removes all its event listeners and triggers. The modal element itself is not removed from the DOM.<br><br>
+            You can pass in a string (<code>id</code>) or element to remove the modal.
+          </li>
+          <li class="pl4 pv3">
+            <code>MicroModal.initModal('modal-id')</code> registers a single modal that was not present when <code>init()</code> was called — for example, a modal added to the DOM dynamically.
           </li>
         </ul>
 
@@ -372,26 +372,33 @@ MicroModal.show(modalElement, {
           Configuration
         </h2>
         <p class="lh-copy mv4 black-80">
-          The <code>init</code> and <code>show</code> methods accept an optional configuration object. This allows you
-          to set custom callbacks and control behaviour of the modal. Example:-
+          The <code>init</code> method is called once to initialize the modals in the document. Configurations passed here will
+          be applied to all modals. This allows you to control the behaviour of the modal. Example:-
         </p>
 
         <pre><code class="language-js">
 MicroModal.init({
-  onShow: modal => console.info(`${modal.id} is shown`), // [1]
-  onClose: modal => console.info(`${modal.id} is hidden`), // [2]
-  openTrigger: 'data-custom-open', // [3]
-  closeTrigger: 'data-custom-close', // [4]
-  openClass: 'is-open', // [5]
-  disableScroll: true, // [6]
-  disableFocus: false, // [7]
-  awaitOpenAnimation: false, // [8]
-  awaitCloseAnimation: false, // [9]
-  debugMode: true // [10]
+  identifier: 'data-micromodal-id', // [1]
+  onShow: modal => console.info(`${modal.id} is shown`), // [2]
+  onClose: modal => console.info(`${modal.id} is hidden`), // [3]
+  openTrigger: 'data-custom-open', // [4]
+  closeTrigger: 'data-custom-close', // [5]
+  openClass: 'is-open', // [6]
+  disableScroll: true, // [7]
+  disableFocus: false, // [8]
+  awaitOpenAnimation: false, // [9]
+  awaitCloseAnimation: false, // [10]
+  debugMode: true // [11]
 });
         </code></pre>
 
         <ul class="ordered lh-copy pl0 mv4">
+          <li class="pl4 pv3">
+            <strong class="fw5">identifier</strong> <code>string</code>
+            <p>
+              Custom data attribute to specify the modal id. Default is <code>data-micromodal-id</code>
+            </p>
+          </li>
           <li class="pl4 pv3">
             <strong class="fw5">onShow</strong> <code>function</code>
             <p>
@@ -459,6 +466,24 @@ MicroModal.init({
             </p>
           </li>
         </ul>
+
+        <p class="lh-copy mv4 black-80">
+          The <code>config</code> and <code>show</code> methods accept an optional configuration object. This allows you
+          to modify the configuration of a modal and set custom callbacks. Example:-
+        </p>
+        <p class="lh-copy mv4 black-80">
+          Note:<ul><li>The configuration passed to the <code>show</code> method overrides the configuration passed to the
+          <code>init</code> method for that particular modal.</li></ul>
+        </p>
+
+        <pre><code class="language-js">
+MicroModal.config(modalElement, {
+  onShow: modal => console.info(`${modal.id} is shown`),
+  onClose: modal => console.info(`${modal.id} is hidden`),
+  awaitOpenAnimation: true,
+  awaitCloseAnimation: true
+});
+        </code></pre>
 
         <h2 class="f3 fw6 lh-title mt5 mb4 black heading" id="styling">
           Styling
