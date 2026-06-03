@@ -338,6 +338,7 @@ MicroModal.show(modalElement, {
 
 MicroModal.closeAll(); // [5]
 MicroModal.removeModal(modalElement); // [6]
+MicroModal.initModal('modal-id'); // [7]
           </code>
         </pre>
 
@@ -359,8 +360,11 @@ MicroModal.removeModal(modalElement); // [6]
             <code>MicroModal.closeAll()</code> just closes all the open modals.
           </li>
           <li class="pl4 pv3">
-            <code>MicroModal.removeModal(modalElement)</code> removes the modal from the DOM and unbinds all event listeners.<br><br>
+            <code>MicroModal.removeModal(modalElement)</code> unregisters a modal and removes all its event listeners and triggers. The modal element itself is not removed from the DOM.<br><br>
             You can pass in a string (<code>id</code>) or element to remove the modal.
+          </li>
+          <li class="pl4 pv3">
+            <code>MicroModal.initModal('modal-id')</code> registers a single modal that was not present when <code>init()</code> was called — for example, a modal added to the DOM dynamically.
           </li>
         </ul>
 

@@ -1,5 +1,5 @@
-import MicroModal from './micromodal.js'
-import './prism.js'
+import MicroModal from './micromodal'
+import './prism'
 
 // Initial config for setting up modals
 MicroModal.init({
@@ -26,30 +26,20 @@ document.querySelector('.js-modal-close-trigger').addEventListener('click', func
 })
 
 // Scrollspy
+let section = document.querySelectorAll('.heading')
 const sections = {}
-const highlightPageSection = function () {
+
+Array.prototype.forEach.call(section, function (e) {
+  sections[e.id] = e.offsetTop
+})
+
+window.onscroll = function () {
   const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
 
-  for (const section in sections) {
+  for (section in sections) {
     if (sections[section] <= scrollPosition) {
       document.querySelector('.active').classList.remove('blue', 'fw6', 'active')
       document.querySelector('a[href*=' + section + ']').classList.add('blue', 'fw6', 'active')
     }
   }
 }
-
-window.onload = function () {
-  const sectionElements = document.querySelectorAll('.heading')
-
-  Array.prototype.forEach.call(sectionElements, function (e) {
-    // Add section navigation links
-    document.getElementById('sections').innerHTML = document.getElementById('sections').innerHTML + '<li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-10"><a href="#' + e.id + '" class="link black-70 navlink">' + e.innerText + '</a></li>'
-    // Add anchor links to headings
-    e.innerHTML = e.innerHTML + ' <a class="link" href="#' + e.id + '" aria-label="Anchor link to heading">🔗</a>'
-
-    sections[e.id] = e.offsetTop - 64
-  })
-  document.querySelector('a[href*=' + sectionElements[0].id + ']').classList.add('active', 'blue', 'fw6')
-  highlightPageSection()
-}
-window.onscroll = highlightPageSection
