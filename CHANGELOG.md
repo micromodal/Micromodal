@@ -1,5 +1,4 @@
 ## Release History
-*
 * **0.7.0**
     * 💡 `FEATURE` Added `MicroModal.closeAll()` to close all open modals at once - #338
     * 💡 `FEATURE` Added `MicroModal.initModal()` to register a modal dynamically after `init()` - #136, #354

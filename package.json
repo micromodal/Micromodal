@@ -11,16 +11,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"yarn lib:dev\" \"yarn docs:dev\"",
-    "build": "yarn lib:build && yarn docs:build",
+    "build": "yarn lib:build",
     "docs:dev": "yarn workspace @micromodal/docs dev",
-    "docs:build": "yarn workspace @micromodal/docs build",
     "lib:dev": "yarn workspace micromodal dev",
     "lib:build": "yarn workspace micromodal build",
     "test:serve": "yarn workspace @micromodal/tests start",
     "test:gui": "yarn workspace @micromodal/tests cypress:open",
     "test:cli": "yarn workspace @micromodal/tests cypress:cli",
-    "deploy:npm": "yarn workspace micromodal deploy",
-    "deploy:docs": "yarn workspace @micromodal/docs deploy"
+    "deploy:npm": "yarn workspace micromodal deploy"
   },
   "repository": {
     "type": "git",
