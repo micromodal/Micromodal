@@ -1,4 +1,22 @@
 ## Release History
+*
+* **0.7.0**
+    * 💡 `FEATURE` Added `MicroModal.closeAll()` to close all open modals at once - #338
+    * 💡 `FEATURE` Added `MicroModal.initModal()` to register a modal dynamically after `init()` - #136, #354
+    * 💡 `FEATURE` Added `MicroModal.removeModal()` to unregister a modal and clean up its event listeners - #312
+    * 💡 `FEATURE` Added `MicroModal.config()` to reconfigure a modal after initialization - #354
+    * 💡 `FEATURE` Support for nested (layered) modals - `Esc` closes only the topmost - #515, #544
+    * 💡 `FEATURE` Setting `role="alertdialog"` on a modal now disables `Esc` to close
+    * 🌀 `ENHANCEMENT` `keydown` listeners are now scoped to each modal element instead of `document` - #421, #544
+    * 🌀 `ENHANCEMENT` Close trigger detection now uses `closest()` for reliable nested element handling - #490
+    * 🌀 `ENHANCEMENT` `show(id, config)` reuses existing modal instances; config passed to `show()` persists on the modal - #354
+    * 🌀 `ENHANCEMENT` Config passed to `init()` now applies to all subsequent `show()` calls - #354
+    * 🌀 `ENHANCEMENT` Added `touchAction: none` to scroll lock for iOS momentum scroll - #509
+    * 🐞 `BUGFIX` Fixed `setFocusToFirstNode` losing its context when used as an `animationend` handler with `awaitOpenAnimation: true`
+    * 🐞 `BUGFIX` Fixed scroll lock being released when a nested modal closes while an outer modal is still open
+    * 🐞 `BUGFIX` Fixed `keydown` handlers from multiple open modals all firing on a single `Esc` press - #421, #544
+    * 🐞 `BUGFIX` Fixed `data-micromodal-close` incorrectly closing modal when clicking inside the container - #490
+    * Thanks to @mike-vel for the bulk of the work in this release
 * **0.6.2**
     * 🐞 `BUGFIX` Updated dependencies
 * **0.6.1**
