@@ -3,17 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "workspaces": [
-    "lib",
-    "docs",
-    "tests"
-  ],
   "source": "src/index.html",
   "scripts": {
-    "dev": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --detailed-report",
-    "deploy": "now --prod",
-    "sync": "cp ../lib/dist/micromodal.js ./src/scripts/",
+    "dev": "npx serve ./src",
+    "sync": "cp ../lib/dist/micromodal.es.js ./src/scripts/micromodal.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,8 +18,5 @@
   "bugs": {
     "url": "https://github.com/ghosh/micromodal/issues"
   },
-  "homepage": "https://github.com/ghosh/micromodal#readme",
-  "devDependencies": {
-    "parcel": "^2.0.1"
-  }
+  "homepage": "https://github.com/ghosh/micromodal#readme"
 }
