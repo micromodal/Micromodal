@@ -127,3 +127,41 @@ describe('Layered Modals', function () {
   })
 
 })
+
+/**
+ * Regression tests for disableScroll with nested modals.
+ * Closing an inner modal should not re-enable scrolling while an outer modal is still open.
+ */
+describe('Scroll lock with nested modals', function () {
+
+  before(() => {
+    cy.window().then(win => {
+      win.MicroModal.config('modal-1', { disableScroll: true })
+      win.MicroModal.config('modal-2', { disableScroll: true })
+    })
+  })
+
+  const checkOverflow = (expected) => {
+    cy.window().then(win => {
+      expect(win.document.body.style.overflow).to.equal(expected)
+    })
+  }
+
+  it('should lock scroll when a modal opens and unlock when it closes', () => {
+    cy.get('[data-micromodal-trigger="modal-1"]').first().click()
+    checkOverflow('hidden')
+    cy.get('#modal-1 .modal__close').click()
+    checkOverflow('')
+  })
+
+  it('should keep scroll locked when the inner modal closes but the outer is still open', () => {
+    cy.get('[data-micromodal-trigger="modal-1"]').first().click()
+    cy.get('#trigger-2').click()
+    checkOverflow('hidden')
+    cy.get('#modal-2 .modal__close').click()
+    checkOverflow('hidden') // outer modal (modal-1) is still open — scroll must stay locked
+    cy.get('#modal-1 .modal__close').click()
+    checkOverflow('')
+  })
+
+})
