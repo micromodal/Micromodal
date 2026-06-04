@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://www.dropbox.com/s/tbaooyi4yh8pbi7/logo.png?raw=1" width="100px"/>
+  <img src="./logo.svg" width="100px" />
 </p>
 <h3 align="center">
-  Micromodal.js (Testing v0.7.2)
+  Micromodal.js
 </h3>
 
 <p align="center">
@@ -27,7 +27,7 @@
 
 The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped&mdash;A tiny library for big change.
 
-**[Demo and documentation](https://micromodal.now.sh/)**
+**[Demo and documentation](https://micromodal.github.io/micromodal/)**
 
 **[Codepen example](https://codepen.io/pen?template=LEYmYWy)**
 
