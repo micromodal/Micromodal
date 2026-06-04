@@ -27,7 +27,7 @@
 
 The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped; a tiny library for big change.
 
-**[Demo and documentation](https://micromodal.github.io/micromodal/)**
+**[Demo and documentation](https://micromodal.github.io/Micromodal/)**
 
 **[Codepen example](https://codepen.io/pen?template=LEYmYWy)**
 
