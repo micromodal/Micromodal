@@ -96,10 +96,9 @@ Micromodal follows the [standardjs](https://standardjs.com/) coding standard and
 
 #### Development setup
 1. Clone Github repo `$ git clone https://github.com/ghosh/micromodal.git`
-2. Install `yarn` package manager (Read [installation guide](https://yarnpkg.com/en/docs/install#mac-tab))
-3. Run `yarn install` in the root folder to install all dependencies
-4. Run `yarn dev` to start a dev server. This serves the example directory and live reloads when any files are changed
-5. [Optional] Run `yarn build` to build the files for distribution. This is run automatically as a pre-commit hook as well.
+2. Run `npm install` in the root folder to install all dependencies
+3. Run `npm run dev` to start a dev server. This serves the example directory and live reloads when any files are changed
+4. [Optional] Run `npm run build` to build the files for distribution. This is run automatically as a pre-commit hook as well.
 6. Send us pull request and chill
 
 #### Pushing a new version
@@ -108,7 +107,7 @@ First, you must be authorized on npmjs.com. Then:
 
 1. Update the npm package:
   - Update the version in `package.json`
-  - `yarn deploy:npm`
+  - `npm run deploy`
 
 2. Update the changelog.
 

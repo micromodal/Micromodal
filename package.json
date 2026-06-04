@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "concurrently \"rollup -c -w\" \"npx serve ./docs\"",
     "build": "rollup -c",
-    "deploy": "yarn build && yarn publish",
+    "deploy": "npm run build && npm publish",
     "docs:sync": "cp dist/micromodal.es.js docs/scripts/micromodal.js",
     "test:serve": "parcel tests/examples/*.html",
     "test:gui": "cypress open --project tests",

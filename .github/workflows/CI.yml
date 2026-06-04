@@ -17,8 +17,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - run: yarn install
-      - run: yarn build
+      - run: npm install
+      - run: npm run build
 
   # Run the test suite
   test:
@@ -32,11 +32,11 @@ jobs:
           node-version: '16.x'
       - uses: cypress-io/github-action@v2
         with:
-          build: yarn build
+          build: npm run build
           runTests: false # just build site
       - uses: cypress-io/github-action@v2
         with:
           install: false
-          start: yarn test:serve
+          start: npm run test:serve
           wait-on: http://localhost:1234
-          command: yarn test:cli
+          command: npm run test:cli
