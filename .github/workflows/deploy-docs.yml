@@ -1,6 +1,7 @@
 name: Deploy Docs
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
 
