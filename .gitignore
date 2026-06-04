@@ -1,12 +1,12 @@
 .DS_Store
 /node_modules
 */node_modules
-package-lock.json
 yarn-error.log
 */.cache
+dist
 */dist
 */screenshots
 .parcel-cache
 
 .vercel
-docs/src/scripts/micromodal.js
+docs/scripts/micromodal.js

@@ -25,7 +25,7 @@
 
 <img src="https://www.dropbox.com/s/8g7fr091tk8o62j/micromodal.gif?raw=1" width="100%">
 
-The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped&mdash;A tiny library for big change.
+The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped; a tiny library for big change.
 
 **[Demo and documentation](https://micromodal.github.io/micromodal/)**
 
@@ -96,10 +96,9 @@ Micromodal follows the [standardjs](https://standardjs.com/) coding standard and
 
 #### Development setup
 1. Clone Github repo `$ git clone https://github.com/ghosh/micromodal.git`
-2. Install `yarn` package manager (Read [installation guide](https://yarnpkg.com/en/docs/install#mac-tab))
-3. Run `yarn install` in the root folder to install all dependencies
-4. Run `yarn dev` to start a dev server. This serves the example directory and live reloads when any files are changed
-5. [Optional] Run `yarn build` to build the files for distribution. This is run automatically as a pre-commit hook as well.
+2. Run `npm install` in the root folder to install all dependencies
+3. Run `npm run dev` to start a dev server. This serves the example directory and live reloads when any files are changed
+4. [Optional] Run `npm run build` to build the files for distribution. This is run automatically as a pre-commit hook as well.
 6. Send us pull request and chill
 
 #### Pushing a new version
@@ -107,8 +106,8 @@ Micromodal follows the [standardjs](https://standardjs.com/) coding standard and
 First, you must be authorized on npmjs.com. Then:
 
 1. Update the npm package:
-  - Update the version in `lib/package.json`
-  - `yarn deploy:npm`
+  - Update the version in `package.json`
+  - `npm run deploy`
 
 2. Update the changelog.
 
