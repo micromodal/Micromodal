@@ -21,7 +21,7 @@
     "build": "rollup -c",
     "deploy": "npm run build && npm publish",
     "docs:sync": "cp dist/micromodal.es.js docs/scripts/micromodal.js",
-    "test:serve": "parcel tests/examples/*.html",
+    "test:serve": "npx serve . --listen 1234",
     "test:gui": "cypress open --project tests",
     "test:cli": "cypress run --project tests"
   },
@@ -48,7 +48,6 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "express": "^4.17.1",
-    "parcel": "^2.0.1",
     "rollup": "^2.0.2",
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-terser": "^7.0.2"
