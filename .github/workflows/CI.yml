@@ -8,15 +8,17 @@ on:
 
 
 jobs:
-  # Build the library and site
+  # Build the library
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-
-    - uses: actions/checkout@v2
-      with:
-        cmd: yarn install && yarn build
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: yarn install
+      - run: yarn build
 
   # Run the test suite
   test:
@@ -35,6 +37,6 @@ jobs:
       - uses: cypress-io/github-action@v2
         with:
           install: false
-          working-directory: tests
-          start: yarn start
+          start: yarn test:serve
           wait-on: http://localhost:1234
+          command: yarn test:cli

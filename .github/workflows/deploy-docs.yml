@@ -21,10 +21,10 @@ jobs:
         with:
           node-version: '20.x'
       - run: yarn install
-      - run: yarn lib:build
-      - run: yarn workspace @micromodal/docs sync
+      - run: yarn build
+      - run: yarn docs:sync
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/src
+          path: docs
       - id: deployment
         uses: actions/deploy-pages@v4

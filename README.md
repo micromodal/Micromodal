@@ -25,7 +25,7 @@
 
 <img src="https://www.dropbox.com/s/8g7fr091tk8o62j/micromodal.gif?raw=1" width="100%">
 
-The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped&mdash;A tiny library for big change.
+The aim of this library is to make modal dialogs accessible and easy to include in your project with minimum configuration. It's only ~1.8kb minified and gzipped; a tiny library for big change.
 
 **[Demo and documentation](https://micromodal.github.io/micromodal/)**
 
@@ -107,7 +107,7 @@ Micromodal follows the [standardjs](https://standardjs.com/) coding standard and
 First, you must be authorized on npmjs.com. Then:
 
 1. Update the npm package:
-  - Update the version in `lib/package.json`
+  - Update the version in `package.json`
   - `yarn deploy:npm`
 
 2. Update the changelog.
