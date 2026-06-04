@@ -30,10 +30,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - uses: cypress-io/github-action@v2
-        with:
-          build: npm run build
-          runTests: false # just build site
+      - run: npm install
+      - run: npm run build
       - uses: cypress-io/github-action@v2
         with:
           install: false
