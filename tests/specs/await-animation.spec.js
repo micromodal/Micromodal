@@ -2,6 +2,20 @@
 
 describe('Await Open Animation', function () {
 
+  it('should keep focus outside when closed before the opening animation ends', () => {
+    cy.visit('/await-animation.html')
+    cy.window().then(win => {
+      const modal = win.document.getElementById('modal-1')
+      const trigger = win.document.getElementById('trigger')
+      trigger.focus()
+      win.MicroModal.show('modal-1')
+      win.MicroModal.close('modal-1')
+      modal.dispatchEvent(new win.Event('animationend', { bubbles: true }))
+      expect(win.document.activeElement).to.equal(trigger)
+      expect(modal.classList.contains('open')).to.equal(false)
+    })
+  })
+
   it('should successfully load', () => {
     cy.visit('/await-animation.html')
   })
