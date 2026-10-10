@@ -119,6 +119,7 @@ const MicroModal = (() => {
       if (idx > -1) activeModals.splice(idx, 1)
 
       this.modal.setAttribute('aria-hidden', 'true')
+      this.modal.removeEventListener('animationend', this.setFocusToFirstNode)
       this.removeEventListeners()
       this.toggleScrolling(true) // enable scrolling
 
