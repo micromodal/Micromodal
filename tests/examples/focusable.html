@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Focusable controls | Tests</title>
+  <style>
+    .modal { display: none; }
+    .modal.is-open { display: block; }
+  </style>
+  <script type="module">
+    import MicroModal from '../../dist/micromodal.es.js'
+    MicroModal.init()
+  </script>
+</head>
+<body>
+  <button id="trigger" data-micromodal-trigger="modal-1">Open dialog</button>
+  <div class="modal" id="modal-1" aria-hidden="true">
+    <div role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h1 id="dialog-title">Focusable controls</h1>
+      <button id="close-control" data-micromodal-close>Close dialog</button>
+      <label for="first-field">First field</label>
+      <input id="first-field">
+      <button id="last-control" aria-hidden="false">Final action</button>
+    </div>
+  </div>
+</body>
+</html>
