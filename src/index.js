@@ -191,7 +191,9 @@ const MicroModal = (() => {
 
     getFocusableNodes () {
       const nodes = this.modal.querySelectorAll(FOCUSABLE_ELEMENTS)
-      return [...nodes]
+      return [...nodes].filter(node => {
+        return node.getClientRects().length > 0 && window.getComputedStyle(node).visibility === 'visible'
+      })
     }
 
     /**
@@ -217,18 +219,10 @@ const MicroModal = (() => {
     }
 
     retainFocus (event, focusTrap) {
-      let focusableNodes = this.getFocusableNodes()
+      const focusableNodes = this.getFocusableNodes()
 
       // no focusable nodes
       if (focusableNodes.length === 0) return
-
-      /**
-       * Filters nodes which are hidden to prevent
-       * focus leak outside modal
-       */
-      focusableNodes = focusableNodes.filter(node => {
-        return (node.offsetParent !== null)
-      })
 
       if (focusTrap === 'outside') {
         // prevents outside focus leak especially if disableFocus is true

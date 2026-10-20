@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visible focus candidates</title>
+  <style>
+    #modal { display: none; }
+    #modal.is-open { display: block; }
+  </style>
+</head>
+<body>
+  <button id="trigger" data-micromodal-trigger="modal">Open</button>
+  <button id="outside">Outside</button>
+  <div id="modal" aria-hidden="true">
+    <div role="dialog" aria-modal="true" aria-label="Focus test">
+      <button style="display: none">Hidden display</button>
+      <div style="display: none"><button>Hidden ancestor</button></div>
+      <button style="visibility: hidden">Hidden visibility</button>
+      <button id="first">First</button>
+      <button id="fixed" style="position: fixed; top: 100px">Fixed</button>
+      <button id="close" data-micromodal-close>Close</button>
+    </div>
+  </div>
+  <script src="../../dist/micromodal.js"></script>
+  <script>MicroModal.init()</script>
+</body>
+</html>
