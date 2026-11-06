@@ -55,6 +55,7 @@ const MicroModal = (() => {
       // pre bind functions for event listeners
       this.showModal = this.showModal.bind(this)
       this.onClick = this.onClick.bind(this)
+      this.onPointerdown = event => { this.pressTarget = event.target }
       this.onKeydown = this.onKeydown.bind(this)
       this.setFocusToFirstNode = this.setFocusToFirstNode.bind(this)
 
@@ -145,6 +146,7 @@ const MicroModal = (() => {
 
     addEventListeners () {
       this.modal.addEventListener('click', this.onClick)
+      this.modal.addEventListener('pointerdown', this.onPointerdown)
       this.modal.addEventListener('keydown', this.onKeydown)
 
       // only bind global keydown if this is the first modal to open
@@ -157,6 +159,7 @@ const MicroModal = (() => {
 
     removeEventListeners () {
       this.modal.removeEventListener('click', this.onClick)
+      this.modal.removeEventListener('pointerdown', this.onPointerdown)
       this.modal.removeEventListener('keydown', this.onKeydown)
 
       // only remove global keydown if no more modals are open
@@ -172,7 +175,7 @@ const MicroModal = (() => {
       const overlayClicked = isOverlay(event.target, this.modal)
       const closestElement = event.target.closest(`[${ this.config.closeTrigger }]`) // eslint-disable-line template-curly-spacing
       if (
-        (event.target.hasAttribute(this.config.closeTrigger) && overlayClicked) || // clicked on modal overlay
+        (event.target.hasAttribute(this.config.closeTrigger) && overlayClicked && this.pressTarget === event.target) || // clicked on modal overlay, with the press starting there
         (closestElement !== null && !isOverlay(closestElement, this.modal) && !overlayClicked) // clicked on a close trigger inside modal
       ) {
         event.preventDefault()
