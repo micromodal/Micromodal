@@ -54,6 +54,14 @@ describe('Basic Modal', function () {
     // modal closed here
   })
 
+  it('should not close modal when a press inside ends on the overlay', () => {
+    openModal()
+    cy.get('.modal__container').trigger('pointerdown')
+    cy.get('.modal__overlay').trigger('click', 'top')
+    cy.get('.modal__overlay').should('be.visible')
+    closeModal()
+  })
+
 
   it('should close modal on escape button press', () => {
     openModal()
